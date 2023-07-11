@@ -1,5 +1,13 @@
 # Sandpack fails to update with web components
 
+## Update: This works!
+
+This was due to two issues:
+
+- the sandpack compiler should have had the template set to "node"
+- without explicitly passing through a `startRoute` in the options, it was set to undefined, which prevented the site from loading
+  - setting this to `/index.html` solves this problem
+
 ## Steps to reproduce
 
 - `npm install`
