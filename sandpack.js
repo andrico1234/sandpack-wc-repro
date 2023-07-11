@@ -111,7 +111,10 @@ let client;
 const onLoad = () => {
 
   const iframe = document.getElementById("iframe");
-  loadSandpackClient(iframe, { files }).then((newClient) => {
+  loadSandpackClient(iframe, { files, template: 'node' }, {
+    startRoute: '/index.html',
+
+  }).then((newClient) => {
     client = newClient;
   });
 }
@@ -121,7 +124,7 @@ document.getElementById("load").addEventListener('click', onLoad)
 
 
 const onUpdate = () => {
-  client.updateSandbox({ files: filesTwo, template: 'node', entry: '/index.js' })
+  client.updateSandbox({ files: filesTwo, template: 'node' })
 }
 
 document.getElementById("update").addEventListener('click', onUpdate)
